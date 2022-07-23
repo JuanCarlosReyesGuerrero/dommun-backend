@@ -1,6 +1,5 @@
 import django_filters
 
-
 from django.core.cache import cache
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import generics, filters
