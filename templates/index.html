@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>
+    {% if departamentos %}
+        Si hay datos
+    {% else %}
+        No hay datos
+    {% endif %}
+</h1>
+<ul>
+    {% for departamento in departamentos %}
+        <li>{{departamento.id}} / {{departamento.nombre}}</li>
+    {% endfor %}
+</ul>
+
+<p>{{name}}</p>
+</body>
+</html>

@@ -7,7 +7,7 @@ class Zona(models.Model):
         ('pais', 'País'),
         ('ciudad', 'Ciudad'),
         ('upz', 'UPZ'),
-        ('appto', 'Zona Appto'),
+        ('appto', 'Zona Dommun'),
     )
 
     tipo_zona = models.CharField(max_length=32, choices=TIPOS_ZONA)
@@ -32,6 +32,7 @@ class Departamento(models.Model):
     class Meta:
         verbose_name_plural = "Departamentos"
         verbose_name = "Departamento"
+        ordering = ['nombre']
 
 
 # ************************************************************
@@ -50,3 +51,4 @@ class Municipio(models.Model):
     class Meta:
         verbose_name_plural = "Municipios"
         verbose_name = "Municipio"
+        ordering = ['departamento', 'nombre']
