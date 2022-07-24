@@ -63,8 +63,8 @@ class Agente(models.Model):
     telefono_contacto = models.CharField(null=True, blank=True, max_length=80)
     descripcion = models.TextField(null=True, blank=True)
 
-    zonas_appto = models.ManyToManyField(Zona, blank=True, limit_choices_to={'tipo_zona': 'appto'},
-                                         related_name='zonas_appto')
+    zonas_dommun = models.ManyToManyField(Zona, blank=True, limit_choices_to={'tipo_zona': 'dommun'},
+                                         related_name='zonas_dommun')
     ciudades = models.ManyToManyField(Zona, blank=True, limit_choices_to={'tipo_zona': 'ciudad'})
     foto_perfil = models.ImageField(upload_to=upload_foto_agente, blank=True, null=True)
 
@@ -99,8 +99,8 @@ class Agente(models.Model):
     def get_ciudades(self):
         return "\n".join([c.nombre for c in self.ciudades.all()])
 
-    def get_zonas_appto(self):
-        return "\n".join([c.nombre for c in self.zonas_appto.all()])
+    def get_zonas_dommun(self):
+        return "\n".join([c.nombre for c in self.zonas_dommun.all()])
 
     def save(self, *args, **kwargs):
         from django.contrib.auth.models import Group

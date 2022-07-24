@@ -7,7 +7,7 @@ class Zona(models.Model):
         ('pais', 'País'),
         ('ciudad', 'Ciudad'),
         ('upz', 'UPZ'),
-        ('appto', 'Zona Dommun'),
+        ('dommun', 'Zona Dommun'),
     )
 
     tipo_zona = models.CharField(max_length=32, choices=TIPOS_ZONA)
