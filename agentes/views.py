@@ -2,8 +2,8 @@ from rest_framework import generics, viewsets, filters
 from rest_framework.pagination import PageNumberPagination
 
 from agentes.models import Agente, GestionDocumental
-from agentes.serializers import AgenteLiteSerializer, AgenteSerializer, AgentePATCHSerializer, \
-    GestionDocumentalSerializer
+from agentes.serializers import AgenteLiteSerializer, \
+    GestionDocumentalSerializer, AgenteSerializer, AgentePATCHSerializer
 
 
 class AgentesList(generics.ListCreateAPIView):

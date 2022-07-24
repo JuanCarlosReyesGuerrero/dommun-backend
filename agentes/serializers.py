@@ -24,6 +24,14 @@ class PlanMembresiaSerializer(serializers.ModelSerializer):
         fields = ('id', 'nombre', 'nombre', 'precio_promocion', 'precio_fijo', 'fecha_creacion', 'fecha_modificacion')
 
 
+class AgenteDetailSerializer(serializers.ModelSerializer):
+    url_update = serializers.HyperlinkedIdentityField(view_name='api:AgentesDetail', lookup_field='slug')
+
+    class Meta:
+        model = Agente
+        fields = ('id', 'nombre',)
+
+
 class AgenteSerializer(serializers.ModelSerializer):
     ciudades = ZonaLiteSerializer(read_only=True, many=True)
     zonas_dommun = ZonaLiteSerializer(read_only=True, many=True)
@@ -32,6 +40,9 @@ class AgenteSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Agente
+        fields = ('id', 'nombre', 'apellido', 'email', 'foto_perfil', 'slug', 'telefono_contacto', 'zonificacion',
+                  'redes_sociales', 'descripcion_perfil', 'numero_avaluo', 'municipio', 'fecha_inicio_plan',
+                  'plan_membresia', 'ciudades', 'zonas_dommun', 'municipio_obj', 'plan_membresia_obj')
         lookup_field = 'slug'
         extra_kwargs = {
             'url': {'lookup_field': 'slug'}
