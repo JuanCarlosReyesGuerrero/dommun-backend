@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     # app
     'agentes',
     'clientes',
+    'leads',
     'propiedades',
     'publicaciones',
     'zonas',
