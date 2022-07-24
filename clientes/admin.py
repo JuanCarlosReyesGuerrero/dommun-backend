@@ -1,3 +1,7 @@
 from django.contrib import admin
 
-# Register your models here.
+from clientes.models import Cliente, Necesidad, PropiedadNecesidad
+
+admin.site.register(Cliente)
+admin.site.register(Necesidad)
+admin.site.register(PropiedadNecesidad)
