@@ -6,5 +6,5 @@ urlpatterns = [
     path('zonas/', ZonaList.as_view()),
     path('departamentos/', DepartamentoList.as_view()),
     path('municipios/', MunicipioList.as_view()),
-    path(r'^(?P<pk>\w+)/$', ZonaDetail.as_view()),
+    #path(r'^(?P<pk>\w+)/$', ZonaDetail.as_view()),
 ]

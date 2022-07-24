@@ -1,8 +1,8 @@
 import random
 
 from django.contrib.auth.models import User
-from django.contrib.postgres.fields import JSONField
 from django.db import models
+from django.db.models import JSONField
 
 from zonas.models import Zona, Municipio
 
@@ -53,7 +53,7 @@ class Agente(models.Model):
         User,
         null=True,
         blank=True,
-        unique=True,
+        #unique=True,
         related_name='agente', on_delete=models.CASCADE
     )
     slug = models.SlugField(null=False, blank=True)
@@ -67,15 +67,11 @@ class Agente(models.Model):
                                          related_name='zonas_dommun')
     ciudades = models.ManyToManyField(Zona, blank=True, limit_choices_to={'tipo_zona': 'ciudad'})
     foto_perfil = models.ImageField(upload_to=upload_foto_agente, blank=True, null=True)
-
     acepta_arriendo = models.BooleanField(null=False, default=True)
     acepta_venta = models.BooleanField(null=False, default=True)
-
     fecha_modificacion = models.DateTimeField(null=True, auto_now=True)
-
     activo = models.BooleanField(null=False, default=True, blank=False)
     publicado = models.BooleanField(null=False, default=True, blank=False)
-
     precio_arriendo_min = models.BigIntegerField(null=True, blank=True, default=1500000)
     precio_venta_min = models.BigIntegerField(null=True, blank=True, default=250000000)
 
